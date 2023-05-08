@@ -1,0 +1,16 @@
+version: "3.1"
+
+rules:
+
+- rule: Perguntar endereço
+  steps:
+  - intent: informar_endereco
+  - action: action_enviar_endereco
+  - active_loop: action_enviar_endereco
+
+rules:
+- rule: address form
+  steps:
+  - intent: informar_endereco
+  - action: address_form
+  - active_loop: address_form

@@ -1,0 +1,180 @@
+version: "3.1"
+
+nlu:
+- intent: saudacao
+  examples: |
+    - oi
+    - olá
+    - bom dia 
+    - boa tarde
+    - boa noite
+    - e ai 
+    - como vai?
+  
+- intent: buscar_ajuda
+  examples: |
+    - preciso de ajuda
+    - preciso de ajuda para um amigo
+    - sou um profissional de saude quero ajudar
+
+  
+
+- intent: despedida
+  examples: |
+    - tchau
+    - ate mais 
+    - até logo
+    - adeus
+    - estou indo
+
+- intent: negacao
+  examples: |
+    - não
+    - nunca
+    - acho que não
+    - de jeito nenhum
+
+- intent: afirmacao
+  examples: |
+    - sim 
+    - ok
+    - correto
+    - certo
+
+- intent: sair
+  examples: |
+    - eu quero sair
+    - tchau
+    - não quero mais conversar
+    - deixar o chat
+    - encerrar conversar
+    - adeus
+    - até logo
+    - tchau
+
+- intent: preciso_de_ajuda
+  examples: |
+    - preciso de ajuda
+    - estou precisando de ajuda
+    - preciso de suporte
+    - preciso de suporte psicologico 
+    - estou me sentido mal, busco por ajuda psicologica 
+
+- intent: emergencia
+  examples: |
+    - socorro
+    - ajuda, por favor
+    - emergência
+    - preciso de ajuda urgente
+    - eu estou cansado da vida
+    - não estou aguentando
+    - não há razão para viver
+
+- intent: ajuda_para_outro
+  examples: |
+    - preciso de ajuda para um profissional de saúde
+    - preciso de ajuda para um amigo
+    - estou buscando informações para ajuda outra pessoa
+    - estou buscando ajuda para um profissional de saúde 
+
+- intent: profissional_da_saude
+  examples: |
+    - sou um profissional de saúde e quero ajudar
+    - como posso colaborar com projeto?
+    - como posso ajudar no projeto? sou psicologo
+    - gostaria de partipar de projeto, eu posso ajudar
+
+- intent: nivel_ajuda_1
+  examples: |
+    - Preciso de ajuda, não  tem sido fácil para mim
+    - Estou procurando um profissional de saúde
+    - Preciso de um psicologo
+
+- intent: nivel_ajuda_2
+  examples: |
+    - Está dificil e afetando muito a minha vida
+    - Nao esta sendo facil continuar a ida
+
+- intent: nivel_ajuda_3
+  examples: |
+    - Não vejo mais solução para o que estou sentindo
+    - quero morrer 
+    - não vejo mais sentido para minha vida
+    - quero fazer uma besteira com a minha vida
+    - quero me suicidar 
+    - sinto vontade de me matar agora "Não tem sido fácil, mas vai melhorar. Está em meus planos procurar um profissional."
+
+- intent: nome
+  examples: |
+    - meu nome é
+    - me chamo
+    - você sabe meu nome?
+    - você precisa do meu nome?
+    - me chamo [sabrina]{"entity": "nome"}
+    - meu nome é [rosana]{"entity": "nome"}
+    - lucas
+    - meu nome é [lais]{"entity": "nome"}
+    - carlos
+    - josé
+    - felipe
+    - roberto
+    - joana
+    - gabriela
+    - rafaela
+    - sarah
+    - luana 
+
+    
+- intent: estado
+  examples: |
+    - eu moro na [sao paulo]{"entity": "estado"}
+    - eu moro no [acre]{"entity": "estado"}
+  
+
+- intent: cidade
+  examples: |
+    - [brasília]{"entity": "cidade"}
+    - [rio de janeiro]{"entity": "cidade"}
+    - [salvador]{"entity": "cidade"}
+    - [goiânia]{"entity": "cidade"}
+    - [recife]{"entity": "cidade"}
+    - [manaus]{"entity": "cidade"}
+    - [betim]{"entity": "cidade"}
+
+
+- intent: informar_endereco
+  examples: |
+    - Quero informar meu endereço
+    - Vou passar o endereço
+    - Endereço: Brasília, DF, Águas Claras
+
+- intent: bairro
+  examples: |
+    - Ceilândia
+    - Asa Norte
+    - Asa Sul
+    - Lago Sul
+    - Lago Norte
+    - Samambaia
+    - Guará
+    - Sudoeste
+    - Noroeste
+    - Park Way
+    - Águas Claras
+    - Taguatinga
+    - Plano Piloto
+    - Sobradinho
+    - Recanto das Emas
+    - Vicente Pires
+    - Gama
+    - Santa Maria
+    - Candangolândia
+    - Núcleo Bandeirante
+    - Riacho Fundo
+    - São Sebastião
+    - Paranoá
+    - Cruzeiro
+    - Jardim Botânico
+    - Itapoã
+    - Varjão
+   

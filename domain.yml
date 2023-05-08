@@ -1,0 +1,127 @@
+version: "3.1"
+
+intents:
+  - saudacao
+  - buscar_ajuda
+  - despedida
+  - negacao
+  - afirmacao 
+  - sair
+  - preciso_de_ajuda
+  - emergencia 
+  - ajuda_para_outro
+  - profissional_da_saude
+  - nivel_ajuda_1
+  - nivel_ajuda_2
+  - nivel_ajuda_3
+  - nome
+  - estado
+  - cidade
+  - informar_endereco
+  - bairro
+
+entities:
+  - nome
+  - estado
+  - cidade
+  - bairro
+ 
+
+slots: 
+
+  nome:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nome
+
+  estado:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: estado
+
+  cidade:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: cidade
+
+  bairro:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: bairro
+
+  
+
+forms:
+  address_form:
+    required_slots:
+        - estado
+        - cidade
+        - bairro
+
+
+responses:
+  utter_saudacao:
+    - text: "Oi, eu sou 123 Ajuda"
+
+  utter_nome:
+    - text: "e qual seu nome?"
+
+  utter_buscar_ajuda:
+    - text: "E você, quem é?"
+      buttons:
+      - title: "Preciso de ajuda"
+        payload: "/preciso_de_ajuda"
+      - title: "Estou procurando ajuda para um profissional de saúde"
+        payload: "/ajuda_para_outro"
+      - title: "Sou profissional de saúde e quero ajudar"
+        payload: "/profissional_da_saude"
+
+  utter_preciso_de_ajuda:
+    - text: "Reconhecer que precisa de ajuda é um grande passo. Vamos juntos pensar quem você pode buscar. Como você está se sentindo agora?"
+      buttons:
+      - title: "Não tem sido fácil, mas vai melhorar. Está em meus planos procurar um profissional."
+        payload: "nivel_ajuda_1"
+      - title: "Está dificil e afetando muito a minha vida."
+        payload: "nivel_ajuda_2"
+      - title: "Não vejo mais solução para o que estou vivenciando. Preciso de ajuda agora"
+        payload: "nivel_ajuda_3"
+  
+  utter_nivel_ajuda_1:
+    - text: "Vamos buscar os locais mais próximos a você. Eu vou precisar do seu endereco para localizar unidades de saude proximos a voce, entao vou coletar algumas informacoes de localidade. ok?"
+      buttons:
+      - title: "Sim eu permito que minhas informacoes de endereco sejam utilizadas para localizar unidades de saude proximo a mim"
+        payload: "/informar_endereco"
+      - title: "Nao posso permitir que utilize minhas informacoes de endereco"
+        payload: "/nao_informar_endereco"
+
+
+  utter_ask_estado:
+    - text: "Qual seu Estado?"
+
+  utter_ask_cidade:
+    - text: "Em qual cidade voce mora?"
+
+  utter_ask_bairro:
+    - text: "qual o seu bairro?"
+
+  utter_ask_missing_slot:
+    - text: na foi possivel encontrar o slot
+
+
+actions:
+  - action_pegar_nome
+  - utter_ask_estado
+  - utter_ask_cidade
+  - utter_ask_bairro
+  - utter_ask_missing_slot
+  - action_enviar_endereco
+  - action_not_all_slots_filled
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

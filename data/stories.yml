@@ -1,0 +1,40 @@
+version: "3.1"
+
+stories:
+
+- story: saudacao
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - action: utter_nome
+  - intent: nome
+  - action: action_pegar_nome
+  - slot_was_set:
+    - nome: nome
+  - action: utter_buscar_ajuda
+
+- story: ajuda 1 
+  steps:
+  - intent: preciso_de_ajuda
+  - action: utter_preciso_de_ajuda
+  - intent: ajuda_nivel_1
+  - action: utter_nivel_ajuda_1
+
+
+# - story: buscar estado
+#   steps:
+#   - intent: informar_endereco
+#   - action: utter_ask_estado
+#   - intent: estado
+#   - slot_was_set:
+#     - estado: estado
+#   - action: utter_ask_cidade
+#   - intent: cidade
+#   - slot_was_set:
+#     - cidade: cidade
+#   - action: utter_ask_bairro
+#   - intent: bairro
+#   - slot_was_set:
+#     - bairro: bairro
+#   - action: action_enviar_endereco
+
