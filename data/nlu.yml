@@ -110,10 +110,9 @@ nlu:
     - me chamo
     - você sabe meu nome?
     - você precisa do meu nome?
-    - me chamo [sabrina]{"entity": "nome"}
-    - meu nome é [rosana]{"entity": "nome"}
+    - me chamo [lais](nome)
     - lucas
-    - meu nome é [lais]{"entity": "nome"}
+    - meu nome é [lais](nome)
     - carlos
     - josé
     - felipe
@@ -124,57 +123,72 @@ nlu:
     - sarah
     - luana 
 
-    
-- intent: estado
-  examples: |
-    - eu moro na [sao paulo]{"entity": "estado"}
-    - eu moro no [acre]{"entity": "estado"}
-  
-
-- intent: cidade
-  examples: |
-    - [brasília]{"entity": "cidade"}
-    - [rio de janeiro]{"entity": "cidade"}
-    - [salvador]{"entity": "cidade"}
-    - [goiânia]{"entity": "cidade"}
-    - [recife]{"entity": "cidade"}
-    - [manaus]{"entity": "cidade"}
-    - [betim]{"entity": "cidade"}
-
-
 - intent: informar_endereco
   examples: |
     - Quero informar meu endereço
     - Vou passar o endereço
     - Endereço: Brasília, DF, Águas Claras
+    - Eu moro em [Sao Paulo](estado)
+
+- lookup: estados_br
+  examples: |
+    - [estados_br.txt](estados)
+
+- lookup: cidades_brasilia
+  examples: |
+    - [cidades_brasilia.txt](cidades)
+      
+- intent: estado
+  examples: |
+    - [Acre](estado)
+    - [Alagoas](estado)
+    - [Amapá](estado)
+    - [Amazonas](estado)
+    - [Bahia](estado)
+    - [Ceará](estado)
+    - [Distrito Federal](estado)
+    - [Espírito Santo](estado)
+    - [Goiás](estado)
+    - [Maranhão](estado)
+    - [Mato Grosso](estado)
+    - [Mato Grosso do Sul](estado)
+    - [Minas Gerais](estado)
+    - [Pará](estado)
+    - [Paraíba](estado)
+    - [Paraná](estado)
+    - [Pernambuco](estado)
+    - [Piauí](estado)
+    - [Rio de Janeiro](estado)
+    - [Rio Grande do Norte](estado)
+    - [Rio Grande do Sul](estado)
+    - [Rondônia](estado)
+    - [Roraima](estado)
+    - [Santa Catarina](estado)
+    - [São Paulo](estado)
+    - [Sergipe](estado)
+    - [Tocantins](estado)
+        
+
+- intent: cidade
+  examples: |
+    - [brasilia](cidade)
+    - [Brasília](cidade)
+    - [Taguatinga](cidade)
+    - [Ceilândia](cidade)
+    - [Planaltina](cidade)
+    - [Sobradinho](cidade)
+    - [Gama](cidade)
+    - [Guará](cidade)
+    - [Cruzeiro](cidade)
+    - [Samambaia](cidade)
+    - [Goiania](cidade)
 
 - intent: bairro
   examples: |
-    - Ceilândia
-    - Asa Norte
-    - Asa Sul
-    - Lago Sul
-    - Lago Norte
-    - Samambaia
-    - Guará
-    - Sudoeste
-    - Noroeste
-    - Park Way
-    - Águas Claras
-    - Taguatinga
-    - Plano Piloto
-    - Sobradinho
-    - Recanto das Emas
-    - Vicente Pires
-    - Gama
-    - Santa Maria
-    - Candangolândia
-    - Núcleo Bandeirante
-    - Riacho Fundo
-    - São Sebastião
-    - Paranoá
-    - Cruzeiro
-    - Jardim Botânico
-    - Itapoã
-    - Varjão
+    - [asa sul](bairro)
+    - [asa norte](bairro)
+    - [varjao](bairro)
+    - [boa vista](bairro)
+
+
    

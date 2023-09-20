@@ -28,7 +28,6 @@ entities:
  
 
 slots: 
-
   nome:
     type: text
     mappings:
@@ -52,8 +51,7 @@ slots:
     mappings:
       - type: from_entity
         entity: bairro
-
-  
+ 
 
 forms:
   address_form:
@@ -84,43 +82,53 @@ responses:
     - text: "Reconhecer que precisa de ajuda é um grande passo. Vamos juntos pensar quem você pode buscar. Como você está se sentindo agora?"
       buttons:
       - title: "Não tem sido fácil, mas vai melhorar. Está em meus planos procurar um profissional."
-        payload: "nivel_ajuda_1"
+        payload: "/nivel_ajuda_1"
       - title: "Está dificil e afetando muito a minha vida."
-        payload: "nivel_ajuda_2"
+        payload: "/nivel_ajuda_2"
       - title: "Não vejo mais solução para o que estou vivenciando. Preciso de ajuda agora"
-        payload: "nivel_ajuda_3"
+        payload: "/nivel_ajuda_3"
   
   utter_nivel_ajuda_1:
     - text: "Vamos buscar os locais mais próximos a você. Eu vou precisar do seu endereco para localizar unidades de saude proximos a voce, entao vou coletar algumas informacoes de localidade. ok?"
       buttons:
-      - title: "Sim eu permito que minhas informacoes de endereco sejam utilizadas para localizar unidades de saude proximo a mim"
+      - title: "Sim eu permito que minhas informacoes de endereco sejam utilizadas temporariamente para localizar unidades de saude proximo a mim"
         payload: "/informar_endereco"
       - title: "Nao posso permitir que utilize minhas informacoes de endereco"
         payload: "/nao_informar_endereco"
 
+  utter_endereco:
+    - text: "Seu endereço é Bairro: {bairro}, Cidade: {cidade}, Estado: {estado}."
+  
+  utter_wait_for_response_estado:
+    - text: "aguarde um momento enquanto verifico o estado"
 
-  utter_ask_estado:
-    - text: "Qual seu Estado?"
+  utter_wait_for_response_cidade:
+    - text: "aguarde um momento enquanto verifico a cidade"
+  
+  utter_wait_for_response_bairro:
+    - text: "aguarde um momento enquanto verifico o bairro"
 
-  utter_ask_cidade:
+  utter_pedir_bairro:
+    - text: "Qual o seu bairro?"
+
+  utter_pedir_cidade:
     - text: "Em qual cidade voce mora?"
+  
+  utter_pedir_estado:
+    - text: "Agora me informe o Estado?"
+  
+  utter_submit:
+    - text: Ok. Thanks!
 
-  utter_ask_bairro:
-    - text: "qual o seu bairro?"
-
-  utter_ask_missing_slot:
-    - text: na foi possivel encontrar o slot
-
-
+  utter_slots_values:
+    - text: seu endereco e {bairro} {cidade} {estado}!
+ 
 actions:
   - action_pegar_nome
-  - utter_ask_estado
-  - utter_ask_cidade
-  - utter_ask_bairro
-  - utter_ask_missing_slot
-  - action_enviar_endereco
-  - action_not_all_slots_filled
-
+  - utter_slots_values
+  - utter_submit
+  - validate_address_form
+  - action_filtrar_endereco
 
 session_config:
   session_expiration_time: 60

@@ -1,8 +1,15 @@
+import logging
 from typing import Any, Text, Dict, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-from rasa_sdk.forms import FormAction
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormValidationAction
+
+import requests 
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
 
 
 
@@ -18,91 +25,87 @@ class ActionPegarNome(Action):
         "isso que nasci para ajudar profissionais de saúde a encontrarem atendimento e apoio emocional."
         dispatcher.utter_message(text=mensagem)
         return []
-        
-
-class ActionAskEstado(Action):
+    
+class AddressFormValidation(FormValidationAction):
     def name(self) -> Text:
-        return "utter_ask_estado"
+        return "validate_address_form"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def validate_estado(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        if not slot_value:
+            dispatcher.utter_message(text="Por favor, forneça o estado correto.")
+            return {"estado": None}
+        return {"estado": slot_value}
 
-        dispatcher.utter_message(template="utter_ask_estado")
+    def validate_cidade(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        if not slot_value:
+            dispatcher.utter_message(text="Por favor, forneça a cidade correta.")
+            return {"cidade": None}
+        return {"cidade": slot_value}
 
-        return []
+    def validate_bairro(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        if not slot_value:
+            dispatcher.utter_message(text="Por favor, forneça o bairro correto.")
+            return {"bairro": None}
+        return {"bairro": slot_value}
 
 
-class ActionAskCidade(Action):
+class ActionFiltrarEndereco(Action):
     def name(self) -> Text:
-        return "utter_ask_cidade"
+        return "action_filtrar_endereco"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(template="utter_ask_cidade")
-
-        return []
-
-
-class ActionAskBairro(Action):
-    def name(self) -> Text:
-        return "utter_ask_bairro"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(template="utter_ask_bairro")
-
-        return []
-
-
-class ActionEnviarEndereco(Action):
-    def name(self) -> Text:
-        return "action_enviar_endereco"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        # Recupere as entidades necessárias do tracker
         estado = tracker.get_slot("estado")
-        cidade = tracker.get_slot("cidade")
         bairro = tracker.get_slot("bairro")
 
-        if estado and cidade and bairro:
-            mensagem = "Endereço confirmado. Estado: {0}, Cidade: {1}, Bairro: {2}".format(estado, cidade, bairro)
-            dispatcher.utter_message(text=mensagem)
+        # Faça a chamada à sua API passando as informações do endereço
+        response = requests.get("http://localhost:5000/unidades_de_saude", params={"uf": estado, "bairro": bairro})
+
+        # Analise a resposta da API e obtenha os resultados desejados
+        if response.status_code == 200:
+            data = response.json()
+
+            if data:
+                # Filtrar apenas os 3 primeiros endereços
+                resultados_filtrados = data[:3]
+
+                for endereco_filtrado in resultados_filtrados:
+                    # Obtém as informações do endereço filtrado
+                    nome = endereco_filtrado.get("nome")
+                    endereco = endereco_filtrado.get("endereco")
+                    bairro = endereco_filtrado.get("bairro")
+                    estado = endereco_filtrado.get("estado")
+
+                    # Envie a resposta para o usuário
+                    mensagem = f"Unidade de Saude: {nome}\nEndereco: {endereco}\nBairro: {bairro}\nEstado: {estado}"
+                    dispatcher.utter_message(text=mensagem)
+            else:
+                dispatcher.utter_message(text="Nenhum endereço encontrado.")
         else:
-            dispatcher.utter_message(template="utter_ask_missing_slot", slot_to_ask=tracker.get_slot_to_fill())
+            dispatcher.utter_message(text="Erro ao consultar a API de filtragem de endereço.")
 
         return []
 
-class ActionNotAllSlotsFilled(Action):
-    def name(self) -> Text:
-        return "action_not_all_slots_filled"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        slots_to_ask = []
-
-        if tracker.slots.get("estado") is None:
-            slots_to_ask.append("estado")
-
-        if tracker.slots.get("cidade") is None:
-            slots_to_ask.append("cidade")
-
-        if tracker.slots.get("bairro") is None:
-            slots_to_ask.append("bairro")
-
-        if len(slots_to_ask) > 1:
-            slots = "{} e {}".format(", ".join(slots_to_ask[:-1]), slots_to_ask[-1])
-        else:
-            slots = slots_to_ask[0]
-
-        dispatcher.utter_message(template="utter_ask_missing_slot", slot_to_ask=slots)
-
-        return [SlotSet("requested_slot", slots_to_ask[0])]

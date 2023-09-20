@@ -17,24 +17,28 @@ stories:
   steps:
   - intent: preciso_de_ajuda
   - action: utter_preciso_de_ajuda
-  - intent: ajuda_nivel_1
+  - intent: nivel_ajuda_1
   - action: utter_nivel_ajuda_1
 
-
-# - story: buscar estado
-#   steps:
-#   - intent: informar_endereco
-#   - action: utter_ask_estado
-#   - intent: estado
-#   - slot_was_set:
-#     - estado: estado
-#   - action: utter_ask_cidade
-#   - intent: cidade
-#   - slot_was_set:
-#     - cidade: cidade
-#   - action: utter_ask_bairro
-#   - intent: bairro
-#   - slot_was_set:
-#     - bairro: bairro
-#   - action: action_enviar_endereco
-
+- story: coletar endereco 2
+  steps:
+  - intent: informar_endereco
+  - action: utter_pedir_bairro
+  - intent: bairro
+  - action: utter_pedir_cidade
+  - intent: cidade
+  - action: utter_pedir_estado
+  - intent: estado
+  - action: address_form
+  - active_loop: address_form
+  - slot_was_set:
+    - requested_slot: bairro
+  - slot_was_set:
+    - requested_slot: cidade
+  - slot_was_set:
+    - requested_slot: estado
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_filtrar_endereco 
+ 

@@ -1,0 +1,21 @@
+{
+  "lookup": {
+    "rules": {},
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"action_pedir_bairro\"}, \"user\": {\"intent\": \"informar_endereco\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"action_pedir_cidade\"}, \"user\": {\"intent\": \"informar_endereco\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"action_pedir_estado\"}, \"user\": {\"intent\": \"informar_endereco\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_pedir_estado\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"action_submit_address\"}, \"user\": {\"intent\": \"informar_endereco\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_submit_address\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"utter_endereco\"}, \"user\": {\"intent\": \"informar_endereco\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "predicting default action with intent session_start",
+      "handling active loops and forms - address_form - action_listen",
+      "handling active loops and forms - address_form",
+      "predicting default action with intent restart",
+      "predicting default action with intent back"
+    ]
+  }
+}

@@ -1,6 +1,20 @@
-# 123 Ajuda Bot
+# TCC 123 Ajuda Bot
 
-Este é um bot para ajudar os usuários a encontrar informações e suporte sobre uma variedade de tópicos.
+123 Ajuda e um sistema de chatbot desenvolvido para trabalho de conclusao de curso da 
+
+## Comandos para executar ambiente
+
+# crie um abiente virtual
+
+python -m venv nome-ambiente
+
+# execute o ambiente
+
+source tutorial-env/bin/activate.
+
+# instale depencias do projeto
+
+rasa
 
 ## Como usar
 
