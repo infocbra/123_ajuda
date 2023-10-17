@@ -1,5 +1,6 @@
 #!/bin/bash
-
-source venv/bin/activate  # Ative o ambiente virtual do seu projeto Rasa, se você estiver usando um
-
+source /home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/bin/activate
+cd /home/ec2-user/projeto_123_ajuda/123_ajuda_bot
+echo "Iniciando Rasa..."
 rasa run -m models --enable-api --endpoints endpoints.yml
+echo "Rasa iniciado com sucesso!"
