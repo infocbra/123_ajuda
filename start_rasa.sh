@@ -4,3 +4,4 @@ source venv/bin/activate  # Ative o ambiente virtual do seu projeto Rasa, se voc
 
 rasa run -m models --endpoints endpoints.yml --port 5005 --credentials credentials.yml --cors "*"
  
+
