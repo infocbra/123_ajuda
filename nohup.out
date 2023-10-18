@@ -1,0 +1,54 @@
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+[91mRasaException: Failed to set channel webhook: Bad webhook: an https url must be provided for webhook[0m
+2023-10-15 23:45:37 ERROR    asyncio  - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f3697f06c10>
+2023-10-15 23:45:37 ERROR    asyncio  - Unclosed connector
+connections: ['[(<aiohttp.client_proto.ResponseHandler object at 0x7f3697f082e0>, 961.127)]']
+connector: <aiohttp.connector.TCPConnector object at 0x7f3697f06df0>
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+[91mRasaException: Failed to set channel webhook: Bad webhook: an https url must be provided for webhook[0m
+2023-10-15 23:46:34 ERROR    asyncio  - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7feabe784c70>
+2023-10-15 23:46:34 ERROR    asyncio  - Unclosed connector
+connections: ['[(<aiohttp.client_proto.ResponseHandler object at 0x7feabe7882e0>, 1018.712)]']
+connector: <aiohttp.connector.TCPConnector object at 0x7feabe784e50>
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+[91mRasaException: Failed to set channel webhook: Bad webhook: an https url must be provided for webhook[0m
+2023-10-15 23:47:25 ERROR    asyncio  - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f24df9c6a90>
+2023-10-15 23:47:25 ERROR    asyncio  - Unclosed connector
+connections: ['[(<aiohttp.client_proto.ResponseHandler object at 0x7f24df9c82e0>, 1069.47)]']
+connector: <aiohttp.connector.TCPConnector object at 0x7f24df9c6be0>
