@@ -1,0 +1,81 @@
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/future/standard_library/__init__.py:65: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+2023-10-18 12:50:16 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2023-10-18 12:50:16 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2023-10-18 12:50:16 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2023-10-18 12:50:16 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2023-10-18 12:50:17 DEBUG    sanic.root  - Sanic-CORS: Configuring CORS with resources: {'/*': {'origins': ['.*'], 'methods': 'DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT', 'allow_headers': ['.*'], 'expose_headers': 'filename', 'supports_credentials': True, 'max_age': None, 'send_wildcard': False, 'automatic_options': True, 'vary_header': True, 'resources': {'/*': {'origins': ['*']}}, 'intercept_exceptions': True, 'always_send': True}}
+2023-10-18 12:50:18 DEBUG    aiogram  - Make request: "setWebhook" with data: "{'url': 'https://123ajuda.tech:443/webhook'}" and files "{}"
+2023-10-18 12:50:18 DEBUG    aiogram  - Response for setWebhook: [200] "'{"ok":true,"result":true,"description":"Webhook is already set"}'"
+2023-10-18 12:50:18 DEBUG    rasa.core.utils  - Available web server routes: 
+/webhooks/rasa                                     GET                            rasa_core_no_api.custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           rasa_core_no_api.custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            rasa_core_no_api.custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           rasa_core_no_api.custom_webhook_RestInput.receive
+/                                                  GET                            rasa_core_no_api.hello
+/webhooks/telegram                                 GET                            rasa_core_no_api.telegram_webhook.health
+/webhooks/telegram/webhook                         GET                            rasa_core_no_api.telegram_webhook.message
+/webhooks/telegram/set_webhook                     GET                            rasa_core_no_api.telegram_webhook.set_webhook
+2023-10-18 12:50:18 INFO     root  - Starting Rasa server on http://0.0.0.0:5005
+2023-10-18 12:50:18 DEBUG    rasa.core.utils  - Using the default number of Sanic workers (1).
+[93m/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/shared/core/slot_mappings.py:224: UserWarning: Slot auto-fill has been removed in 3.0 and replaced with a new explicit mechanism to set slots. Please refer to https://rasa.com/docs/rasa/domain#slots to learn more.
+  rasa.shared.utils.io.raise_warning(
+[0m2023-10-18 12:50:19 DEBUG    rasa.telemetry  - Skipping telemetry reporting: no license hash found.
+2023-10-18 12:50:19 DEBUG    rasa.core.tracker_store  - Connected to InMemoryTrackerStore.
+2023-10-18 12:50:19 DEBUG    rasa.core.lock_store  - Connected to lock store 'InMemoryLockStore'.
+2023-10-18 12:50:19 DEBUG    rasa.core.nlg.generator  - Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2023-10-18 12:50:19 INFO     rasa.core.processor  - Loading model models/20230611-231234-zesty-frisbee.tar.gz...
+2023-10-18 12:50:19 DEBUG    rasa.engine.storage.local_model_storage  - Extracted model to '/tmp/tmp1abropw6'.
+[93m/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/shared/core/slot_mappings.py:224: UserWarning: Slot auto-fill has been removed in 3.0 and replaced with a new explicit mechanism to set slots. Please refer to https://rasa.com/docs/rasa/domain#slots to learn more.
+  rasa.shared.utils.io.raise_warning(
+[0m2023-10-18 12:50:19 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' loading 'NLUMessageConverter.load' and kwargs: '{}'.
+2023-10-18 12:50:19 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' loading 'WhitespaceTokenizer.load' and kwargs: '{}'.
+2023-10-18 12:50:19 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' loading 'RegexFeaturizer.load' and kwargs: '{}'.
+2023-10-18 12:50:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RegexFeaturizer1' was requested for reading.
+2023-10-18 12:50:19 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer2' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2023-10-18 12:50:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_CountVectorsFeaturizer2' was requested for reading.
+2023-10-18 12:50:19 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2023-10-18 12:50:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_CountVectorsFeaturizer3' was requested for reading.
+2023-10-18 12:50:19 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier4' loading 'DIETClassifier.load' and kwargs: '{}'.
+2023-10-18 12:50:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_DIETClassifier4' was requested for reading.
+2023-10-18 12:50:19 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /tmp/tmpy0cmyqsa/train_DIETClassifier4/DIETClassifier.tf_model with finetune_mode=False...
+2023-10-18 12:50:20 DEBUG    rasa.nlu.classifiers.diet_classifier  - Following metrics will be logged during training: 
+2023-10-18 12:50:20 DEBUG    rasa.nlu.classifiers.diet_classifier  -   t_loss (total loss)
+2023-10-18 12:50:20 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_acc (intent acc)
+2023-10-18 12:50:20 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_loss (intent loss)
+2023-10-18 12:50:20 DEBUG    rasa.nlu.classifiers.diet_classifier  -   e_f1 (entity f1)
+2023-10-18 12:50:20 DEBUG    rasa.nlu.classifiers.diet_classifier  -   e_loss (entity loss)
+2023-10-18 12:51:00 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+2023-10-18 12:51:00 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper5' loading 'EntitySynonymMapper.load' and kwargs: '{}'.
+2023-10-18 12:51:00 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_EntitySynonymMapper5' was requested for reading.
+2023-10-18 12:51:00 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' loading 'RegexMessageHandler.load' and kwargs: '{}'.
+2023-10-18 12:51:00 DEBUG    rasa.engine.graph  - Node 'domain_provider' loading 'DomainProvider.load' and kwargs: '{}'.
+2023-10-18 12:51:00 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'domain_provider' was requested for reading.
+2023-10-18 12:51:00 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' loading 'MemoizationPolicy.load' and kwargs: '{}'.
+2023-10-18 12:51:00 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_MemoizationPolicy0' was requested for reading.
+2023-10-18 12:51:00 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy1' loading 'TEDPolicy.load' and kwargs: '{}'.
+2023-10-18 12:51:00 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_TEDPolicy1' was requested for reading.
+2023-10-18 12:51:00 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /tmp/tmpy0cmyqsa/train_TEDPolicy1/ted_policy.tf_model with finetune_mode=False...
+2023-10-18 12:51:17 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+[93m/home/ec2-user/projeto_123_ajuda/123_ajuda_bot/venv/lib64/python3.9/site-packages/rasa/utils/train_utils.py:525: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.
+  rasa.shared.utils.io.raise_warning(
+[0m2023-10-18 12:51:17 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy2' loading 'RulePolicy.load' and kwargs: '{}'.
+2023-10-18 12:51:17 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy2' was requested for reading.
+2023-10-18 12:51:17 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' loading 'RuleOnlyDataProvider.load' and kwargs: '{}'.
+2023-10-18 12:51:17 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy2' was requested for reading.
+2023-10-18 12:51:17 DEBUG    rasa.engine.graph  - Node 'select_prediction' loading 'DefaultPolicyPredictionEnsemble.load' and kwargs: '{}'.
+2023-10-18 12:51:17 INFO     root  - Rasa server is up and running.
+2023-10-18 12:51:17 INFO     root  - Enabling coroutine debugging. Loop id 94493638940736.
+2023-10-18 12:51:17 DEBUG    root  - No model server endpoint found after server start.
