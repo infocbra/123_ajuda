@@ -40,10 +40,11 @@ class AddressFormValidation(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        if not slot_value:
-            dispatcher.utter_message(text="Por favor, forneça o UF correto.")
+        if slot_value.lower() not in ["df", "distrito federal"]:
+            dispatcher.utter_message(text="Obrigado por entrar em contato com o 123 Ajuda. Atualmente, nossos serviços estão disponíveis apenas para residentes no Distrito Federal.")
             return {"estado": None}
         return {"estado": slot_value}
+
 
     def validate_cidade(
         self,
@@ -91,7 +92,7 @@ class ActionFiltrarEndereco(Action):
 
         # Faça a chamada à sua API passando as informações do endereço
         url = "https://123ajuda.tech/api/unidades_de_saude"
-        params = {"uf": estado, "abragencia": cidade, "isFullTime": is_full_time_value}
+        params = {"uf": estado, "abragencia": cidade}
 
         try:
             response = requests.get(url, params=params)
@@ -123,11 +124,4 @@ class ActionFiltrarEndereco(Action):
 
         return []
 
-class ActionBuscarEndereco(Action):
-    def name(self) -> Text:
-        return "action_buscar_endereco"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Estou buscando pelo endereço. Por favor, aguarde um momento.")
-    
-        return []

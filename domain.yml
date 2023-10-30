@@ -22,6 +22,7 @@ intents:
   - ajuda_para_profissional_saude
   - nao_ajudar
   - ajudar_123_ajuda
+  - nao_moro_no_df
 
 
 
@@ -133,10 +134,10 @@ responses:
     - text: "Seu endereço é Bairro: {bairro}, Cidade: {cidade}, Estado: {estado}."
   
   utter_wait_for_response_estado:
-    - text: "aguarde um momento enquanto verifico o estado"
+    - text: "aguarde um momento enquanto verifico o endereço"
 
   utter_wait_for_response_cidade:
-    - text: "aguarde um momento enquanto verifico a cidade"
+    - text: "aguarde um momento enquanto verifico o endereço"
   
   utter_wait_for_response_bairro:
     - text: "aguarde um momento enquanto verifico o bairro"
@@ -151,7 +152,15 @@ responses:
     - text: " Qual estado o profissional mora?"
 
   utter_pedir_estado:
-    - text: "Vamos buscar os locais mais próximos a você. Qual estado você mora?"
+    - text: "Estamos disponíveis para ajudar na região do Distrito Federal. Você reside no DF?"
+      buttons:
+        - title: "Sim"
+          payload: "/estado"
+        - title: "Nao"
+          payload: "/nao_moro_no_df"
+
+  utter_nao_moro_no_df:
+    - text: "Obrigado por entrar em contato com o 123 Ajuda. Atualmente, nossos serviços estão disponíveis apenas para residentes no Distrito Federal."
   
   utter_submit:
     - text: Ok. Thanks!
@@ -165,7 +174,7 @@ actions:
   - utter_submit
   - validate_address_form
   - action_filtrar_endereco
-  - action_buscar_endereco
+
 
 session_config:
   session_expiration_time: 60

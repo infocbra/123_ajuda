@@ -151,7 +151,7 @@ nlu:
     - [henrique](nome)
     - [luiza](nome)
     - [cristina](nome)
-    - [suzana](nome)
+    - [joana](nome)
 
 - intent: informar_endereco
   examples: |
@@ -227,22 +227,33 @@ nlu:
 
 - intent: cidade
   examples: |
-    - [brasilia](cidade)
     - [Brasília](cidade)
+    - [brasília](cidade)
     - [Taguatinga](cidade)
     - [Ceilândia](cidade)
+    - [ceilândia](cidade)
     - [Planaltina](cidade)
     - [Sobradinho](cidade)
     - [Gama](cidade)
+    - [gama](cidade)
     - [Guará](cidade)
+    - [guará](cidade)
     - [Guará 2](cidade)
     - [Cruzeiro](cidade)
     - [Samambaia](cidade)
-    - [Goiania](cidade)
+    - [samambaia](cidade)
     - [Riacho Fundo 2](cidade)
     - [Asa Sul](cidade)
     - [Asa Norte](cidade)
-    - [Brazilandia](cidade)
+    - [Brazilândia](cidade)
+    - [Paranoá](cidade)
+    - [Núcleo Bandeirante](cidade)
+    - [Lago Norte](cidade)
+    - [Lago Sul](cidade)
+    - [Santa Maria](cidade)
+    - [São Sebastião](cidade)
+    - [Recanto das Emas](cidade)
+
 
 - intent: bairro
   examples: |
@@ -252,4 +263,11 @@ nlu:
     - [boa vista](bairro)
 
 
+- intent: nao_moro_no_df
+  examples: |
+    - Não, eu não moro no Distrito Federal.
+    - Não sou do DF.
+    - Infelizmente, não resido em Brasília.
+    - Não, minha cidade não está no DF.
+    - Desculpe, não sou residente do Distrito Federal.
    
