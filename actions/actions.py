@@ -17,14 +17,17 @@ class ActionPegarNome(Action):
     def name(self) -> Text:
         return "action_pegar_nome"
     
-    def run(self, dispatcher, tracker, domain):
-        name = tracker.latest_message['text']
-        mensagem = f"{name}, você sabia que a pandemia alterou de modo significativo a vida dos brasileiros. "\
-        "De acordo com  a pesquisa 'Saúde mental em tempos de pandemia', realizada pela Fiocruz em parceria com a UFMG e a UFJF,"\
-        "cerca de 40% dos brasileiros apresentaram sintomas de ansiedade e depressão durante a pandemia? E foi por"\
-        "isso que nasci para ajudar profissionais de saúde a encontrarem atendimento e apoio emocional."
-        dispatcher.utter_message(text=mensagem)
-        return []
+    def validate_nome(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        if not slot_value:
+            dispatcher.utter_message(text="Por favor, qual seu nome.")
+            return {"nome": None}
+        return {"nome": slot_value}
     
 class AddressFormValidation(FormValidationAction):
     def name(self) -> Text:
@@ -38,7 +41,7 @@ class AddressFormValidation(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         if not slot_value:
-            dispatcher.utter_message(text="Por favor, forneça o estado correto.")
+            dispatcher.utter_message(text="Por favor, forneça o UF correto.")
             return {"estado": None}
         return {"estado": slot_value}
 
@@ -79,33 +82,52 @@ class ActionFiltrarEndereco(Action):
     ) -> List[Dict[Text, Any]]:
         # Recupere as entidades necessárias do tracker
         estado = tracker.get_slot("estado")
-        bairro = tracker.get_slot("bairro")
+        cidade = tracker.get_slot("cidade")
+        latest_intent = tracker.latest_message["intent"]["name"]
+        is_full_time = latest_intent == "emergencia"
+
+        # Defina isFullTime como True se a intenção for "emergencia", caso contrário, False
+        is_full_time_value = True if is_full_time else False
 
         # Faça a chamada à sua API passando as informações do endereço
-        response = requests.get("http://localhost:5000/unidades_de_saude", params={"uf": estado, "bairro": bairro})
+        url = "https://123ajuda.tech/api/unidades_de_saude"
+        params = {"uf": estado, "abragencia": cidade, "isFullTime": is_full_time_value}
 
-        # Analise a resposta da API e obtenha os resultados desejados
-        if response.status_code == 200:
-            data = response.json()
+        try:
+            response = requests.get(url, params=params)
 
-            if data:
-                # Filtrar apenas os 3 primeiros endereços
-                resultados_filtrados = data[:3]
+            if response.status_code == 200:
+                data = response.json()
 
-                for endereco_filtrado in resultados_filtrados:
-                    # Obtém as informações do endereço filtrado
-                    nome = endereco_filtrado.get("nome")
-                    endereco = endereco_filtrado.get("endereco")
-                    bairro = endereco_filtrado.get("bairro")
-                    estado = endereco_filtrado.get("estado")
+                if data:
+                    # Filtrar apenas os 3 primeiros endereços
+                    resultados_filtrados = data[:3]
 
-                    # Envie a resposta para o usuário
-                    mensagem = f"Unidade de Saude: {nome}\nEndereco: {endereco}\nBairro: {bairro}\nEstado: {estado}"
-                    dispatcher.utter_message(text=mensagem)
+                    for endereco_filtrado in resultados_filtrados:
+                        # Obtém as informações do endereço filtrado
+                        nome = endereco_filtrado.get("nome")
+                        endereco = endereco_filtrado.get("endereco")
+                        bairro = endereco_filtrado.get("bairro")
+                        uf = endereco_filtrado.get("uf")
+
+                        # Envie a resposta para o usuário
+                        mensagem = f"Unidade de Saude: {nome}\nEndereco: {endereco}\nBairro: {bairro}\nEstado: {uf}"
+                        dispatcher.utter_message(text=mensagem)
+                else:
+                    dispatcher.utter_message(text="Nenhum endereço encontrado.")
             else:
-                dispatcher.utter_message(text="Nenhum endereço encontrado.")
-        else:
-            dispatcher.utter_message(text="Erro ao consultar a API de filtragem de endereço.")
+                dispatcher.utter_message(text=f"Erro ao consultar a API de filtragem de endereço. Código de status: {response.status_code}")
+
+        except requests.RequestException as e:
+            dispatcher.utter_message(text=f"Erro ao consultar a API de filtragem de endereço: {e}")
 
         return []
 
+class ActionBuscarEndereco(Action):
+    def name(self) -> Text:
+        return "action_buscar_endereco"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Estou buscando pelo endereço. Por favor, aguarde um momento.")
+    
+        return []

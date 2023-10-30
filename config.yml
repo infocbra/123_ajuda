@@ -10,6 +10,14 @@ language: pt
 pipeline:
 - name: WhitespaceTokenizer
 - name: RegexFeaturizer
+   # Esta configuração usa expressões regulares para gerar recursos das palavras.
+  # Ele trata variações de capitalização e pontuação.
+  # O parâmetro `pattern` define a expressão regular para encontrar palavras.
+  # O parâmetro `case_sensitive` indica se a correspondência é sensível a maiúsculas e minúsculas ou não.
+  # O parâmetro `punctuation` indica se a pontuação deve ser incluída nos recursos ou não.
+  # - pattern: "[\w]+"
+  #  case_sensitive: false
+  #  punctuation: false
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: char_wb

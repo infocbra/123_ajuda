@@ -8,9 +8,11 @@ stories:
   - action: utter_saudacao
   - action: utter_nome
   - intent: nome
-  - action: action_pegar_nome
+  - action: nome_form
+  - active_loop: nome_form
   - slot_was_set:
-    - nome: nome
+    - requested_slot: nome
+  - active_loop: null
   - action: utter_buscar_ajuda
 
 - story: ajuda 1 
@@ -20,23 +22,56 @@ stories:
   - intent: nivel_ajuda_1
   - action: utter_nivel_ajuda_1
 
+- story: ajuda para profissional da saude
+  steps:
+  - intent: ajuda_para_profissional_saude
+  - action: utter_ajuda_para_profissional_saude
+
+- story: profissional da saude
+  steps:
+  - intent: profissional_da_saude
+  - action: utter_profissional_da_saude
+
+- story: profissional da saude quer ajudar
+  steps:
+  - intent: ajudar_123_ajuda
+  - action: utter_ajudar_123_ajuda
+
+- story: profissional da saude nao quer ajudar o projeto
+  steps:
+  - intent: nao_ajudar
+  - action: utter_nao_ajudar
+
+- story: Emergência
+  steps:
+    - intent: emergencia
+    - action: utter_emergencia
+    - action: utter_pedir_endereco
+
+- story: nao ajudar 123 ajuda
+  steps:
+  - intent: nao_ajudar
+  - action: utter_nao_ajudar
+
+- story: ajudar 123 ajuda
+  steps:
+  - intent: ajudar_123_ajuda
+  - action: utter_ajudar_123_ajuda
+ 
 - story: coletar endereco 2
   steps:
   - intent: informar_endereco
-  - action: utter_pedir_bairro
-  - intent: bairro
-  - action: utter_pedir_cidade
-  - intent: cidade
   - action: utter_pedir_estado
   - intent: estado
+  - action: utter_pedir_cidade
+  - intent: cidade
+  - action: action_buscar_endereco
   - action: address_form
   - active_loop: address_form
   - slot_was_set:
-    - requested_slot: bairro
-  - slot_was_set:
-    - requested_slot: cidade
-  - slot_was_set:
     - requested_slot: estado
+  - slot_was_set:
+    - requested_slot: cidade  
   - slot_was_set:
     - requested_slot: null
   - active_loop: null

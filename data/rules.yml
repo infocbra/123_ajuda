@@ -2,22 +2,22 @@ version: "3.1"
 
 rules:
 
-- rule: Activate form
-  steps:
-  - intent: estado
-  - action: address_form
-  - active_loop: address_form
+# - rule: Activate form
+#   steps:
+#   - intent: estado
+#   - action: address_form
+#   - active_loop: address_form
 
 
-- rule: Submit form
-  condition:
-  - active_loop: address_form
-  steps:
-  - action: address_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_filtrar_endereco
+# - rule: Submit form
+#   condition:
+#   - active_loop: address_form
+#   steps:
+#   - action: address_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: action_filtrar_endereco
 
 
 

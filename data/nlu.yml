@@ -59,17 +59,36 @@ nlu:
     - preciso de suporte
     - preciso de suporte psicologico 
     - estou me sentido mal, busco por ajuda psicologica 
+    - sou profissional da saude e preciso de ajuda
 
+- intent: ajuda_para_profissional_saude
+  examples: |
+    - Estou procurando ajuda para um profissional da saúde
+    - estou procurando ajuda para pessoa que trabalha na area da saude
+    - procuro ajuda para enfermeiro
+    - procuro ajuda para enfermeira 
+    - procuro ajuda para um familiar da area da saúde
+
+- intent: nao_ajudar
+  examples: |
+    - Nao quero ajudar
+    - nao quero participar
+    - nao tenho interesse em participar 
+
+- intent: ajudar_123_ajuda
+  examples: |
+    - quero ajudar
+    - tenho interesse em ajudar
+    - como posso participar do 123 ajuda? 
+   
 - intent: emergencia
   examples: |
     - socorro
-    - ajuda, por favor
     - emergência
     - preciso de ajuda urgente
-    - eu estou cansado da vida
+    - atendimento de emergencia
     - não estou aguentando
-    - não há razão para viver
-
+   
 - intent: ajuda_para_outro
   examples: |
     - preciso de ajuda para um profissional de saúde
@@ -107,21 +126,32 @@ nlu:
 - intent: nome
   examples: |
     - meu nome é
-    - me chamo
+    - me chamo 
     - você sabe meu nome?
     - você precisa do meu nome?
     - me chamo [lais](nome)
     - lucas
     - meu nome é [lais](nome)
-    - carlos
-    - josé
-    - felipe
-    - roberto
-    - joana
-    - gabriela
-    - rafaela
-    - sarah
-    - luana 
+    - [carlos](nome)
+    - [josé](nome)
+    - [felipe](nome)
+    - [roberto](nome)
+    - [joana](nome)
+    - [gabriela](nome)
+    - [rafaela](nome)
+    - [sarah](nome)
+    - [luana](nome) 
+    - [lais](nome)
+    - [fabio](nome)
+    - [joana](nome)
+    - [anelise](nome)
+    - [juliana](nome)
+    - [malu](nome)
+    - [gabriel](nome)
+    - [henrique](nome)
+    - [luiza](nome)
+    - [cristina](nome)
+    - [suzana](nome)
 
 - intent: informar_endereco
   examples: |
@@ -136,7 +166,7 @@ nlu:
 
 - lookup: cidades_brasilia
   examples: |
-    - [cidades_brasilia.txt](cidades)
+    - [cidades_brasilia.txt](cidade)
       
 - intent: estado
   examples: |
@@ -167,7 +197,33 @@ nlu:
     - [São Paulo](estado)
     - [Sergipe](estado)
     - [Tocantins](estado)
-        
+    - [AC](estado)
+    - [AL](estado)
+    - [AP](estado)
+    - [AM](estado)
+    - [BA](estado)
+    - [CE](estado)
+    - [DF](estado)
+    - [ES](estado)
+    - [GO](estado)
+    - [MA](estado)
+    - [MT](estado)
+    - [MS](estado)
+    - [MG](estado)
+    - [PA](estado)
+    - [PB](estado)
+    - [PR](estado)
+    - [PE](estado)
+    - [PI](estado)
+    - [RJ](estado)
+    - [RN](estado)
+    - [RS](estado)
+    - [RO](estado)
+    - [RR](estado)
+    - [SC](estado)
+    - [SP](estado)
+    - [SE](estado)
+    - [TO](estado)
 
 - intent: cidade
   examples: |
@@ -179,9 +235,14 @@ nlu:
     - [Sobradinho](cidade)
     - [Gama](cidade)
     - [Guará](cidade)
+    - [Guará 2](cidade)
     - [Cruzeiro](cidade)
     - [Samambaia](cidade)
     - [Goiania](cidade)
+    - [Riacho Fundo 2](cidade)
+    - [Asa Sul](cidade)
+    - [Asa Norte](cidade)
+    - [Brazilandia](cidade)
 
 - intent: bairro
   examples: |

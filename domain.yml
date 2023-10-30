@@ -19,14 +19,20 @@ intents:
   - cidade
   - informar_endereco
   - bairro
+  - ajuda_para_profissional_saude
+  - nao_ajudar
+  - ajudar_123_ajuda
+
+
+
 
 entities:
   - nome
   - estado
   - cidade
   - bairro
- 
 
+ 
 slots: 
   nome:
     type: text
@@ -54,11 +60,13 @@ slots:
  
 
 forms:
+  nome_form: 
+    required_slots:
+      - nome
   address_form:
     required_slots:
         - estado
         - cidade
-        - bairro
 
 
 responses:
@@ -69,12 +77,12 @@ responses:
     - text: "e qual seu nome?"
 
   utter_buscar_ajuda:
-    - text: "E você, quem é?"
+    - text: "{nome}, você sabia que a pandemia alterou de modo significativo a vida de 95% dos profissionais da saúde? E foi por isso que nasci, para ajudar profissionais da saúde a econtrar atendimento e apoio emocional. E você, quem é?"
       buttons:
       - title: "Preciso de ajuda"
         payload: "/preciso_de_ajuda"
       - title: "Estou procurando ajuda para um profissional de saúde"
-        payload: "/ajuda_para_outro"
+        payload: "/ajuda_para_profissional_saude"
       - title: "Sou profissional de saúde e quero ajudar"
         payload: "/profissional_da_saude"
 
@@ -96,6 +104,31 @@ responses:
       - title: "Nao posso permitir que utilize minhas informacoes de endereco"
         payload: "/nao_informar_endereco"
 
+  utter_ajuda_para_profissional_saude:
+    - text: "Você ser rede de apoio é algo muito importante! Há lugares e pessoas que podem te ajudar o profissional de imediato, são dispositivos para emergência e outros que você pode agendar. Qual você deseja buscar?"
+      buttons:
+      - title: "Vou agendar"
+        payload: "/informar_endereco"
+      - title: "Emergência"
+        payload: "/emergencia"
+
+  utter_profissional_da_saude:
+      - text: "Ficamos contentes com seu interesse, ele é muito importante! O 123 indica profissionais e dispositivos que atendam gratuitamente ou a preço social. Você se encaixa nesses critérios?"
+        buttons:
+        - title: "Sim"
+          payload: "/ajudar_123_ajuda"
+        - title: "Não"
+          payload: "/nao_ajudar"
+
+  utter_emergencia:
+    - text: "Vamos buscar os locais mais próximos a você que atenda 24 horas. Eu vou precisar do seu endereco para localizar unidades de saude proximos a voce, entao vou coletar algumas informacoes de localidade. ok?"
+    
+  utter_ajudar_123_ajuda:
+    - text: "Clique aqui e responda este formulário para entrar em nossa base de dados."
+
+  utter_nao_ajudar:
+    - text: "Em pesquisa, 69% dos profissionais disseram não se sentir preparados para lidar com a pandemia. A grande maioria, 87%, disse sentir medo e 67% ansiedade. Este momento é difícil, compartilhe o 123 ajuda com os profissionais que você conhece."
+
   utter_endereco:
     - text: "Seu endereço é Bairro: {bairro}, Cidade: {cidade}, Estado: {estado}."
   
@@ -109,19 +142,22 @@ responses:
     - text: "aguarde um momento enquanto verifico o bairro"
 
   utter_pedir_bairro:
-    - text: "Qual o seu bairro?"
+    - text: "Qual o bairro? Esta informação é importante para buscarmos os locais mais próximos."
 
   utter_pedir_cidade:
-    - text: "Em qual cidade voce mora?"
+    - text: "Ok, em qual cidade do Distrito Federal você mora? Esta informação é importante para buscarmos os locais mais próximos."
   
+  utter_pedir_endereco:
+    - text: " Qual estado o profissional mora?"
+
   utter_pedir_estado:
-    - text: "Agora me informe o Estado?"
+    - text: "Vamos buscar os locais mais próximos a você. Qual estado você mora?"
   
   utter_submit:
     - text: Ok. Thanks!
 
   utter_slots_values:
-    - text: seu endereco e {bairro} {cidade} {estado}!
+    - text: seu endereco {cidade} {estado}!
  
 actions:
   - action_pegar_nome
@@ -129,6 +165,7 @@ actions:
   - utter_submit
   - validate_address_form
   - action_filtrar_endereco
+  - action_buscar_endereco
 
 session_config:
   session_expiration_time: 60
