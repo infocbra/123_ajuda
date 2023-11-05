@@ -105,10 +105,10 @@ nlu:
     - sinto vontade de me matar agora "Não tem sido fácil, mas vai melhorar. Está em meus planos procurar um profissional."
 - intent: nome
   examples: |
+    - [nome padrão](nome)
     - meu nome é
     - me chamo
     - você sabe meu nome?
-    - você precisa do meu nome?
     - me chamo [lais](nome)
     - lucas
     - meu nome é [lais](nome)
@@ -131,7 +131,7 @@ nlu:
     - [luiza](nome)
     - [cristina](nome)
     - [pedro](nome)
-    - [lais](nome)
+    - [ana](nome)
 - intent: sem_nome
   examples: |
     - não sei meu nome
@@ -145,6 +145,31 @@ nlu:
     - Vou passar o endereço
     - Endereço: Brasília, DF, Águas Claras
     - Eu moro em [Sao Paulo](estado)
+- intent: confirmar_moradia_df
+  examples: |
+    - Sim, moro no DF
+    - Sim, sou do Distrito Federal
+    - Moro em Brasília, DF
+    - Sim, minha cidade é no DF
+    - Confirmo que moro no Distrito Federal
+    - Sou do DF
+    - DF
+    - É isso mesmo, moro no DF
+    - Isso mesmo, meu endereço é do DF
+    - Sim, estou no Distrito Federal
+    - Confirmo que resido no DF
+    - Estou no DF
+    - É verdade, moro no DF
+    - Sim, vivo no DF
+    - Sim, é aqui em Brasília
+    - Sim, estou em Brasília, DF
+    - Brasília, DF
+    - Distrito Federal, sim
+    - Confirmo que minha residência é em Brasília
+    - Sim, minha cidade é Brasília
+    - Sim, confirmo que sou do DF
+    - DF, sim
+    - Confirmo que moro em Brasília, Distrito Federal
 - intent: estado
   examples: |
     - [Acre](estado)

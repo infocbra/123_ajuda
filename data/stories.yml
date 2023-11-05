@@ -66,7 +66,7 @@ stories:
   steps:
     - intent: emergencia
     - action: utter_emergencia
-    - action: utter_pedir_endereco
+    - action: utter_pedir_estado
 
 - story: Usuário nao ajudar 123 ajuda
   steps:
@@ -82,9 +82,11 @@ stories:
   steps:
   - intent: informar_endereco
   - action: utter_pedir_estado
-  - intent: estado
+  - intent: confirmar_moradia_df
+  - action: action_set_estado_df
   - action: utter_pedir_cidade
   - action: address_form
+  - active_loop: address_form
   - slot_was_set:
     - requested_slot: estado
   - slot_was_set:
@@ -93,6 +95,15 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: action_filtrar_endereco
+
+- story: Usuário não mora no DF
+  steps:
+  - intent: nao_moro_no_df
+  - action: utter_nao_moro_no_df
+  - slot_was_set:
+    - estado: null  
+ 
+
 
 # - story: Buscar por endereço
 #   steps:
@@ -114,13 +125,7 @@ stories:
 #   - active_loop: null
 #   - action: action_filtrar_endereco 
 
-- story: Usuário não mora no DF
-  steps:
-  - intent: nao_moro_no_df
-  - action: utter_nao_moro_no_df
-  - slot_was_set:
-    - estado: null  
- 
+
  
 # - story: coletar endereco 2
 #   steps:
@@ -144,103 +149,3 @@ stories:
 #   - active_loop: null
 #   - action: action_filtrar_endereco 
  
-- story: interactive_story_1
-  steps:
-  - intent: saudacao
-  - action: utter_saudacao
-  - action: utter_nome
-  - intent: nome
-    entities:
-    - nome: lais
-  - slot_was_set:
-    - nome: lais
-  - action: nome_form
-  - active_loop: nome_form
-  - slot_was_set:
-    - nome: lais
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_buscar_ajuda
-  - intent: preciso_de_ajuda
-  - action: utter_preciso_de_ajuda
-  - intent: nivel_ajuda_1
-  - action: utter_nivel_ajuda_1
-  - intent: informar_endereco
-  - action: utter_pedir_estado
-  - intent: estado
-  - action: utter_pedir_cidade
-  - action: address_form
-  - active_loop: address_form
-  - slot_was_set:
-    - requested_slot: estado
-  - intent: cidade
-    entities:
-    - cidade: Gama
-  - slot_was_set:
-    - cidade: Gama
-  - action: address_form
-  - slot_was_set:
-    - cidade: Gama
-  - slot_was_set:
-    - requested_slot: estado
-
-- story: interactive_story_2
-  steps:
-  - intent: saudacao
-  - action: utter_saudacao
-  - action: utter_nome
-  - intent: estado
-    entities:
-    - estado: pedro
-  - slot_was_set:
-    - estado: pedro
-  - intent: nome
-    entities:
-    - nome: pedro
-  - action: nome_form
-  - active_loop: nome_form
-  - slot_was_set:
-    - nome: pedro
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_buscar_ajuda
-  - intent: preciso_de_ajuda
-  - action: utter_preciso_de_ajuda
-  - intent: nivel_ajuda_1
-  - action: utter_nivel_ajuda_1
-  - intent: informar_endereco
-  - action: utter_pedir_estado
-  - intent: estado
-
-- story: interactive_story_1
-  steps:
-  - intent: saudacao
-  - action: utter_saudacao
-  - action: utter_nome
-  - intent: nome
-    entities:
-    - nome: lais
-  - slot_was_set:
-    - nome: lais
-  - action: nome_form
-  - active_loop: nome_form
-  - slot_was_set:
-    - nome: lais
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_buscar_ajuda
-  - intent: preciso_de_ajuda
-  - action: utter_preciso_de_ajuda
-  - intent: nivel_ajuda_1
-  - action: utter_nivel_ajuda_1
-  - intent: informar_endereco
-  - action: utter_pedir_estado
-  - intent: estado
-  - action: utter_pedir_cidade
-  - action: address_form
-  - active_loop: address_form
-  - slot_was_set:
-    - requested_slot: estado

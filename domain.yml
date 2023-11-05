@@ -7,6 +7,7 @@ intents:
 - bairro
 - buscar_ajuda
 - cidade
+- confirmar_moradia_df
 - despedida
 - emergencia
 - estado
@@ -71,6 +72,7 @@ responses:
       payload: /ajuda_para_profissional_saude
     - title: Sou profissional de saúde e quero ajudar
       payload: /profissional_da_saude
+    button_type: vertical
   utter_buscar_ajuda_sem_nome:
   - text: A pandemia alterou de modo significativo a vida de 95% dos profissionais da saúde. Foi por isso que nasci, para ajudar profissionais da saúde a encontrar atendimento e apoio emocional. E você, quem é?
     buttons:
@@ -80,6 +82,7 @@ responses:
       payload: /ajuda_para_profissional_saude
     - title: Sou profissional de saúde e quero ajudar
       payload: /profissional_da_saude
+    button_type: vertical
   utter_preciso_de_ajuda:
   - text: Reconhecer que precisa de ajuda é um grande passo. Vamos juntos pensar quem você pode buscar. Como você está se sentindo agora?
     buttons:
@@ -89,6 +92,7 @@ responses:
       payload: /nivel_ajuda_2
     - title: Não vejo mais solução para o que estou vivenciando. Preciso de ajuda agora
       payload: /nivel_ajuda_3
+    button_type: vertical
   utter_nivel_ajuda_1:
   - text: Vamos buscar os locais mais próximos a você. Eu vou precisar do seu endereco para localizar unidades de saude proximos a voce, entao vou coletar algumas informacoes de localidade. ok?
     buttons:
@@ -103,6 +107,7 @@ responses:
       payload: /informar_endereco
     - title: Emergência
       payload: /emergencia
+    button_type: vertical
   utter_profissional_da_saude:
   - text: Ficamos contentes com seu interesse, ele é muito importante! O 123 indica profissionais e dispositivos que atendam gratuitamente ou a preço social. Você se encaixa nesses critérios?
     buttons:
@@ -110,6 +115,7 @@ responses:
       payload: /ajudar_123_ajuda
     - title: Não
       payload: /nao_ajudar
+    button_type: vertical
   utter_emergencia:
   - text: Vamos buscar os locais mais próximos a você que atenda 24 horas. Eu vou precisar do seu endereco para localizar unidades de saude proximos a voce, entao vou coletar algumas informacoes de localidade. ok?
   utter_ajudar_123_ajuda:
@@ -134,9 +140,10 @@ responses:
   - text: Estamos disponíveis para ajudar na região do Distrito Federal. Você reside no DF?
     buttons:
     - title: Sim
-      payload: /estado
+      payload: /confirmar_moradia_df
     - title: Nao
       payload: /nao_moro_no_df
+    button_type: vertical
   utter_nao_moro_no_df:
   - text: Obrigado por entrar em contato com o 123 Ajuda. Atualmente, nossos serviços estão disponíveis apenas para residentes no Distrito Federal.
   utter_submit:
@@ -144,19 +151,19 @@ responses:
   utter_slots_values:
   - text: seu endereco {cidade} {estado}!
 actions:
-- utter_pedir_estado
-- utter_nivel_ajuda_1
-- utter_nome
 - utter_preciso_de_ajuda
-- utter_buscar_ajuda
-- utter_pedir_cidade
+- utter_nome
+- action_set_estado_df
+- utter_nivel_ajuda_1
 - utter_saudacao
+- utter_pedir_estado
+- utter_pedir_cidade
+- utter_buscar_ajuda
 - action_pegar_nome
 - utter_slots_values
 - utter_submit
 - validate_address_form
 - action_filtrar_endereco
-- action_set_estado_df
 
 session_config:
   session_expiration_time: 60

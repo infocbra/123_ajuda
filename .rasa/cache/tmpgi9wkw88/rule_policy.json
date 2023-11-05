@@ -1,0 +1,20 @@
+{
+  "lookup": {
+    "rules": {},
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"utter_pedir_cidade\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"address_form\"}, \"slots\": {\"nome\": [1.0]}, \"user\": {\"intent\": \"estado\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"cidade\": [1.0], \"nome\": [1.0]}, \"user\": {\"entities\": [\"cidade\"], \"intent\": \"cidade\"}}]": "loop_was_interrupted",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"address_form\"}, \"prev_action\": {\"action_name\": \"address_form\"}, \"slots\": {\"cidade\": [1.0], \"nome\": [1.0]}, \"user\": {\"entities\": [\"cidade\"], \"intent\": \"cidade\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "handling active loops and forms - nome_form",
+      "handling active loops and forms - address_form",
+      "predicting default action with intent back",
+      "handling active loops and forms - nome_form - action_listen",
+      "predicting default action with intent restart",
+      "predicting default action with intent session_start"
+    ]
+  }
+}

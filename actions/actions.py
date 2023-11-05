@@ -38,9 +38,9 @@ class AddressFormValidation(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        if slot_value.lower() not in ["df", "distrito federal"]:
-            dispatcher.utter_message(text="Obrigado por entrar em contato com o 123 Ajuda. Atualmente, nossos serviços estão disponíveis apenas para residentes no Distrito Federal.")
-            return {"estado": None}
+        # if slot_value.lower() not in ["df", "distrito federal"]:
+        #     dispatcher.utter_message(text="Obrigado por entrar em contato com o 123 Ajuda. Atualmente, nossos serviços estão disponíveis apenas para residentes no Distrito Federal.")
+        #     return {"estado": None}
         return {"estado": slot_value}
 
 
@@ -95,15 +95,18 @@ class ActionFiltrarEndereco(Action):
         is_full_time = latest_intent == "emergencia"
 
         # Defina isFullTime como True se a intenção for "emergencia", caso contrário, False
-        is_full_time_value = True if is_full_time else False
+        is_full_time_value = 1 if is_full_time else 0
 
+        print(f"Estado: {estado}")
+        print(f"Cidade: {cidade}")
+        print(f"is_full_time_value: {is_full_time_value}")
         # Faça a chamada à sua API passando as informações do endereço
-        url = "https://123ajuda.tech/api/unidades_de_saude"
+        url = f"https://123ajuda.tech/api/unidades_de_saude?abrangencia={cidade}&uf={estado}&isFulltime={is_full_time_value}"
         url_localhost = "http://127.0.0.1:5000/api/unidades_de_saude"
-        params = {"uf": estado, "abragencia": cidade}
+        params = {"abragencia": cidade, "uf": estado, }
 
         try:
-            response = requests.get(url, params=params)
+            response = requests.get(url)
 
             if response.status_code == 200:
                 data = response.json()
@@ -124,7 +127,7 @@ class ActionFiltrarEndereco(Action):
 
 
                         # Envie a resposta para o usuário
-                        mensagem = f"Abrangencia: {abrangencia}\nHorário de Atendimento: {horario_atendimento}\nUnidade de Saude: {nome}\nEndereço: {endereco}\nBairro: {bairro}\nEstado: {uf}"
+                        mensagem = f"\nAbrangencia: {abrangencia}\nHorário de Atendimento: {horario_atendimento}\nUnidade de Saude: {nome}\nEndereço: {endereco}\nBairro: {bairro}\nEstado: {uf}"
                         dispatcher.utter_message(text=mensagem)
                 else:
                     dispatcher.utter_message(text="Nenhum endereço encontrado.")
