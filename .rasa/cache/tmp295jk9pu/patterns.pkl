@@ -1,0 +1,10 @@
+[
+  {
+    "name": "estados_br",
+    "pattern": "(\\b\\[estados_br\\.txt\\]\\(estados\\)\\b)"
+  },
+  {
+    "name": "cidades_brasilia",
+    "pattern": "(\\b\\[cidades_brasilia\\.txt\\]\\(cidade\\)\\b)"
+  }
+]

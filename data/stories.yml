@@ -1,8 +1,28 @@
 version: "3.1"
 
 stories:
+- story: saudacao sem nome reconhecido
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - action: utter_nome
+  - intent: sem_nome
+  - slot_was_set:
+    - nome: null
+  - action: utter_buscar_ajuda_sem_nome
 
-- story: saudacao
+
+# - story: saudacao com nome reconhecido
+#   steps:
+#   - intent: saudacao
+#   - action: utter_saudacao
+#   - action: utter_nome
+#   - intent: nome
+#   - slot_was_set:
+#     - nome: true
+#   - action: utter_buscar_ajuda
+
+- story: saudacao com nome reconhecido
   steps:
   - intent: saudacao
   - action: utter_saudacao
@@ -58,16 +78,13 @@ stories:
   - intent: ajudar_123_ajuda
   - action: utter_ajudar_123_ajuda
 
-- story: Buscar por endereço
+- story: Verificar Estado (Usuário Mora no DF)
   steps:
   - intent: informar_endereco
   - action: utter_pedir_estado
   - intent: estado
   - action: utter_pedir_cidade
-  - intent: cidade
-  - action: utter_wait_for_response_cidade
   - action: address_form
-  - active_loop: address_form
   - slot_was_set:
     - requested_slot: estado
   - slot_was_set:
@@ -75,7 +92,27 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  - action: action_filtrar_endereco 
+  - action: action_filtrar_endereco
+
+# - story: Buscar por endereço
+#   steps:
+#   - intent: informar_endereco
+#   - action: utter_pedir_estado
+#   - intent: estado
+#   - action: utter_pedir_cidade
+#   - intent: cidade
+#   - action: address_form
+#   - slot_was_set:
+#      - estado: "DF"
+#   - active_loop: address_form
+#   - slot_was_set:
+#     - requested_slot: estado
+#   - slot_was_set:
+#     - requested_slot: cidade  
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_filtrar_endereco 
 
 - story: Usuário não mora no DF
   steps:
@@ -107,3 +144,103 @@ stories:
 #   - active_loop: null
 #   - action: action_filtrar_endereco 
  
+- story: interactive_story_1
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - action: utter_nome
+  - intent: nome
+    entities:
+    - nome: lais
+  - slot_was_set:
+    - nome: lais
+  - action: nome_form
+  - active_loop: nome_form
+  - slot_was_set:
+    - nome: lais
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_buscar_ajuda
+  - intent: preciso_de_ajuda
+  - action: utter_preciso_de_ajuda
+  - intent: nivel_ajuda_1
+  - action: utter_nivel_ajuda_1
+  - intent: informar_endereco
+  - action: utter_pedir_estado
+  - intent: estado
+  - action: utter_pedir_cidade
+  - action: address_form
+  - active_loop: address_form
+  - slot_was_set:
+    - requested_slot: estado
+  - intent: cidade
+    entities:
+    - cidade: Gama
+  - slot_was_set:
+    - cidade: Gama
+  - action: address_form
+  - slot_was_set:
+    - cidade: Gama
+  - slot_was_set:
+    - requested_slot: estado
+
+- story: interactive_story_2
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - action: utter_nome
+  - intent: estado
+    entities:
+    - estado: pedro
+  - slot_was_set:
+    - estado: pedro
+  - intent: nome
+    entities:
+    - nome: pedro
+  - action: nome_form
+  - active_loop: nome_form
+  - slot_was_set:
+    - nome: pedro
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_buscar_ajuda
+  - intent: preciso_de_ajuda
+  - action: utter_preciso_de_ajuda
+  - intent: nivel_ajuda_1
+  - action: utter_nivel_ajuda_1
+  - intent: informar_endereco
+  - action: utter_pedir_estado
+  - intent: estado
+
+- story: interactive_story_1
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - action: utter_nome
+  - intent: nome
+    entities:
+    - nome: lais
+  - slot_was_set:
+    - nome: lais
+  - action: nome_form
+  - active_loop: nome_form
+  - slot_was_set:
+    - nome: lais
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_buscar_ajuda
+  - intent: preciso_de_ajuda
+  - action: utter_preciso_de_ajuda
+  - intent: nivel_ajuda_1
+  - action: utter_nivel_ajuda_1
+  - intent: informar_endereco
+  - action: utter_pedir_estado
+  - intent: estado
+  - action: utter_pedir_cidade
+  - action: address_form
+  - active_loop: address_form
+  - slot_was_set:
+    - requested_slot: estado

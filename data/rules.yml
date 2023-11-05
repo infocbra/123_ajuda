@@ -2,35 +2,17 @@ version: "3.1"
 
 rules:
 
-# - rule: Activate form
-#   steps:
-#   - intent: estado
-#   - action: address_form
-#   - active_loop: address_form
+  - rule: Definir estado como DF
+    steps:
+    - intent: estado
+    - action: action_set_estado_df
+    - slot_was_set:
+      - estado: "DF"
 
-
-# - rule: Submit form
-#   condition:
-#   - active_loop: address_form
-#   steps:
-#   - action: address_form
-#   - active_loop: null
-#   - slot_was_set:
-#     - requested_slot: null
-#   - action: action_filtrar_endereco
-
-
-
-# - rule: Submit form
-#   condition:
-#   # Condition that form is active.
-#   - active_loop: address_form
-#   steps:
-#   # Form is deactivated
-#   - action: address_form
-#   - active_loop: null
-#   - slot_was_set:
-#     - requested_slot: null
-#   # The actions we want to run when the form is submitted.
-#   - action: action_submit_address
-#   - action: utter_endereco
+  # - rule: Preencher slot estado com valor DF
+  #   steps:
+  #     - intent: estado
+  #     - slot_was_set:
+  #         - estado: "DF"
+  
+  

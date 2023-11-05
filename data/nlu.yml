@@ -1,46 +1,38 @@
 version: "3.1"
-
 nlu:
 - intent: saudacao
   examples: |
     - oi
     - olá
-    - bom dia 
+    - bom dia
     - boa tarde
     - boa noite
-    - e ai 
+    - e ai
     - como vai?
-  
 - intent: buscar_ajuda
   examples: |
     - preciso de ajuda
     - preciso de ajuda para um amigo
     - sou um profissional de saude quero ajudar
-
-  
-
 - intent: despedida
   examples: |
     - tchau
-    - ate mais 
+    - ate mais
     - até logo
     - adeus
     - estou indo
-
 - intent: negacao
   examples: |
     - não
     - nunca
     - acho que não
     - de jeito nenhum
-
 - intent: afirmacao
   examples: |
-    - sim 
+    - sim
     - ok
     - correto
     - certo
-
 - intent: sair
   examples: |
     - eu quero sair
@@ -50,37 +42,31 @@ nlu:
     - encerrar conversar
     - adeus
     - até logo
-    - tchau
-
 - intent: preciso_de_ajuda
   examples: |
     - preciso de ajuda
     - estou precisando de ajuda
     - preciso de suporte
-    - preciso de suporte psicologico 
-    - estou me sentido mal, busco por ajuda psicologica 
+    - preciso de suporte psicologico
+    - estou me sentido mal, busco por ajuda psicologica
     - sou profissional da saude e preciso de ajuda
-
 - intent: ajuda_para_profissional_saude
   examples: |
     - Estou procurando ajuda para um profissional da saúde
     - estou procurando ajuda para pessoa que trabalha na area da saude
     - procuro ajuda para enfermeiro
-    - procuro ajuda para enfermeira 
+    - procuro ajuda para enfermeira
     - procuro ajuda para um familiar da area da saúde
-
 - intent: nao_ajudar
   examples: |
     - Nao quero ajudar
     - nao quero participar
-    - nao tenho interesse em participar 
-
+    - nao tenho interesse em participar
 - intent: ajudar_123_ajuda
   examples: |
     - quero ajudar
     - tenho interesse em ajudar
-    - como posso participar do 123 ajuda? 
-   
+    - como posso participar do 123 ajuda?
 - intent: emergencia
   examples: |
     - socorro
@@ -88,45 +74,39 @@ nlu:
     - preciso de ajuda urgente
     - atendimento de emergencia
     - não estou aguentando
-   
 - intent: ajuda_para_outro
   examples: |
     - preciso de ajuda para um profissional de saúde
     - preciso de ajuda para um amigo
     - estou buscando informações para ajuda outra pessoa
-    - estou buscando ajuda para um profissional de saúde 
-
+    - estou buscando ajuda para um profissional de saúde
 - intent: profissional_da_saude
   examples: |
     - sou um profissional de saúde e quero ajudar
     - como posso colaborar com projeto?
     - como posso ajudar no projeto? sou psicologo
     - gostaria de partipar de projeto, eu posso ajudar
-
 - intent: nivel_ajuda_1
   examples: |
     - Preciso de ajuda, não  tem sido fácil para mim
     - Estou procurando um profissional de saúde
     - Preciso de um psicologo
-
 - intent: nivel_ajuda_2
   examples: |
     - Está dificil e afetando muito a minha vida
     - Nao esta sendo facil continuar a ida
-
 - intent: nivel_ajuda_3
   examples: |
     - Não vejo mais solução para o que estou sentindo
-    - quero morrer 
+    - quero morrer
     - não vejo mais sentido para minha vida
     - quero fazer uma besteira com a minha vida
-    - quero me suicidar 
+    - quero me suicidar
     - sinto vontade de me matar agora "Não tem sido fácil, mas vai melhorar. Está em meus planos procurar um profissional."
-
 - intent: nome
   examples: |
     - meu nome é
-    - me chamo 
+    - me chamo
     - você sabe meu nome?
     - você precisa do meu nome?
     - me chamo [lais](nome)
@@ -140,10 +120,9 @@ nlu:
     - [gabriela](nome)
     - [rafaela](nome)
     - [sarah](nome)
-    - [luana](nome) 
+    - [luana](nome)
     - [lais](nome)
     - [fabio](nome)
-    - [joana](nome)
     - [anelise](nome)
     - [juliana](nome)
     - [malu](nome)
@@ -151,23 +130,21 @@ nlu:
     - [henrique](nome)
     - [luiza](nome)
     - [cristina](nome)
-    - [joana](nome)
-
+    - [pedro](nome)
+    - [lais](nome)
+- intent: sem_nome
+  examples: |
+    - não sei meu nome
+    - não quero informar meu nome
+    - não tenho nome
+    - sem nome
+    - não quero falar o meu nome
 - intent: informar_endereco
   examples: |
     - Quero informar meu endereço
     - Vou passar o endereço
     - Endereço: Brasília, DF, Águas Claras
     - Eu moro em [Sao Paulo](estado)
-
-- lookup: estados_br
-  examples: |
-    - [estados_br.txt](estados)
-
-- lookup: cidades_brasilia
-  examples: |
-    - [cidades_brasilia.txt](cidade)
-      
 - intent: estado
   examples: |
     - [Acre](estado)
@@ -224,7 +201,6 @@ nlu:
     - [SP](estado)
     - [SE](estado)
     - [TO](estado)
-
 - intent: cidade
   examples: |
     - [Brasília](cidade)
@@ -253,16 +229,12 @@ nlu:
     - [Santa Maria](cidade)
     - [São Sebastião](cidade)
     - [Recanto das Emas](cidade)
-
-
 - intent: bairro
   examples: |
     - [asa sul](bairro)
     - [asa norte](bairro)
     - [varjao](bairro)
     - [boa vista](bairro)
-
-
 - intent: nao_moro_no_df
   examples: |
     - Não, eu não moro no Distrito Federal.
@@ -270,4 +242,9 @@ nlu:
     - Infelizmente, não resido em Brasília.
     - Não, minha cidade não está no DF.
     - Desculpe, não sou residente do Distrito Federal.
-   
+- lookup: estados_br
+  examples: |
+    - [estados_br.txt](estados)
+- lookup: cidades_brasilia
+  examples: |
+    - [cidades_brasilia.txt](cidade)
