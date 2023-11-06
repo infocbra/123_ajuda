@@ -101,6 +101,7 @@ responses:
       payload: /informar_endereco
     - title: Nao posso permitir que utilize minhas informacoes de endereco
       payload: /nao_informar_endereco
+    button_type: vertical
   utter_ajuda_para_profissional_saude:
   - text: Você ser rede de apoio é algo muito importante! Há lugares e pessoas que podem te ajudar o profissional de imediato, são dispositivos para emergência e outros que você pode agendar. Qual você deseja buscar?
     buttons:

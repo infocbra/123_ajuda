@@ -1,4 +1,5 @@
 import logging
+from sanic import Sanic, Request, response
 from typing import Any, Text, Dict, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -9,6 +10,34 @@ from rasa_sdk.forms import FormValidationAction
 import requests 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+
+app = Sanic("actions")
+
+
+@app.route("/webhooks/rest/webhook", methods=["POST"])
+async def webhook(request: Request):
+    data = request.json
+    tracker = Tracker(
+        sender_id=data["sender"],
+        slots=data["slots"],
+        latest_message=data["latest_message"],
+        events=data["events"],
+        paused=data["paused"],
+        followup_action=data["followup_action"],
+        active_form=data["active_form"],
+        latest_input_channel=data["latest_input_channel"],
+        latest_action_name=data["latest_action_name"]
+    )
+    dispatcher = CollectingDispatcher.from_tracker(tracker)
+    
+    # Chame suas ações personalizadas com o tracker e dispatcher
+    # Exemplo: dispatcher.utter_message(text="Olá, mundo!")
+    
+    responses = dispatcher.messages
+    return response.json(responses)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5055)
 
 
 class ActionPegarNome(Action):
