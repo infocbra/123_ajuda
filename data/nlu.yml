@@ -256,10 +256,9 @@ nlu:
     - [Recanto das Emas](cidade)
 - intent: bairro
   examples: |
-    - [asa sul](bairro)
-    - [asa norte](bairro)
-    - [varjao](bairro)
-    - [boa vista](bairro)
+    - [715 asa norte](bairro)
+    - [ 210 asa sul](bairro)
+    - [Ceilandia Norte](bairro)
 - intent: nao_moro_no_df
   examples: |
     - Não, eu não moro no Distrito Federal.
