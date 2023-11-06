@@ -11,7 +11,11 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
-  url: "http://123ajuda.tech:5055/webhook"
+  url: "http://localhost:5055/webhook"
+
+
+rest:
+  credentials: "./credentials.yml"
 
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.

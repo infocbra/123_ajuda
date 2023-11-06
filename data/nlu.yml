@@ -266,6 +266,12 @@ nlu:
     - Infelizmente, não resido em Brasília.
     - Não, minha cidade não está no DF.
     - Desculpe, não sou residente do Distrito Federal.
+- intent: nao_informar_endereco
+  examples: |
+    - Não quero passar meu endereço
+    - Não vou passar meu endereço
+    - Não quero informar meu endereço
+
 - lookup: estados_br
   examples: |
     - [estados_br.txt](estados)

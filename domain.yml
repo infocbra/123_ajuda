@@ -24,6 +24,7 @@ intents:
 - sair
 - saudacao
 - sem_nome
+- nao_informar_endereco
 entities:
 - nome
 - cidade
@@ -143,13 +144,14 @@ responses:
       payload: /confirmar_moradia_df
     - title: Nao
       payload: /nao_moro_no_df
-    button_type: vertical
   utter_nao_moro_no_df:
   - text: Obrigado por entrar em contato com o 123 Ajuda. Atualmente, nossos serviços estão disponíveis apenas para residentes no Distrito Federal.
   utter_submit:
   - text: Ok. Thanks!
   utter_slots_values:
   - text: seu endereco {cidade} {estado}!
+  utter_nao_informar_endereco:
+  - text: ok, tudo bem entendemos, mas para continuar precisamos dessa informacao.
 actions:
 - utter_preciso_de_ajuda
 - utter_nome

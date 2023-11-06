@@ -102,6 +102,14 @@ stories:
   - action: utter_nao_moro_no_df
   - slot_was_set:
     - estado: null  
+
+- story: Nao informar endereco
+  steps:
+  - intent: nao_informar_endereco
+  - action: utter_nao_informar_endereco
+  - slot_was_set:
+    - estado: null  
+ 
  
 
 
