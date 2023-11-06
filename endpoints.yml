@@ -12,7 +12,7 @@
 
 
 action_endpoint:
-  url: "https://123ajuda.tech:5005/webhooks/rest/webhook"
+  url: "https://123ajuda.tech:5055/webhooks/rest/webhook"
 
 
 # Tracker store which is used to store the conversations.
